@@ -1,0 +1,9 @@
+{
+  "name": "Peruibe Melhor",
+  "theme_color": "#303F9F",
+  "short_name": "Peruibe Melhor",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "gcm_sender_id": "103953800507"
+}

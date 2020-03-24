@@ -1,0 +1,24 @@
+[debug] [2020-03-12T00:03:16.028Z] ----------------------------------------------------------------------
+[debug] [2020-03-12T00:03:16.030Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2020-03-12T00:03:16.030Z] CLI Version:   7.14.0
+[debug] [2020-03-12T00:03:16.030Z] Platform:      darwin
+[debug] [2020-03-12T00:03:16.030Z] Node Version:  v12.14.1
+[debug] [2020-03-12T00:03:16.034Z] Time:          Wed Mar 11 2020 21:03:16 GMT-0300 (Brasilia Standard Time)
+[debug] [2020-03-12T00:03:16.034Z] ----------------------------------------------------------------------
+[debug] [2020-03-12T00:03:16.034Z] 
+[debug] [2020-03-12T00:03:16.043Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-12T00:03:16.043Z] > authorizing via signed-in user
+[debug] [2020-03-12T00:03:16.043Z] [iam] checking project peruibe-melhor-pwa for permissions ["firebase.projects.get"]
+[debug] [2020-03-12T00:03:16.045Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/peruibe-melhor-pwa:testIamPermissions  
+
+[debug] [2020-03-12T00:03:20.223Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-12T00:03:20.225Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/peruibe-melhor-pwa  
+ 
+[debug] [2020-03-12T00:03:25.105Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-12T00:03:25.108Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/peruibe-melhor-pwa/webApps/-/config  
+ 
+[debug] [2020-03-12T00:03:26.601Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./public
+[info] ✔  hosting: Local server: http://localhost:5000
+[warn] ⚠  hosting: Could not load Firebase SDK firebase-app.js v7.10.0, check your internet connection.
+[debug] [2020-03-12T00:51:21.022Z] Error: getaddrinfo ENOTFOUND www.gstatic.com
