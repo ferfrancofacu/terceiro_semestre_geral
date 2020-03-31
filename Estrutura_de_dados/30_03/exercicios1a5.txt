@@ -1,0 +1,90 @@
+Considere a seguinte lista:
+[196, 275, 370, 371, 401, 420, 421, 557, 643, 817, 862, 916, 948, 954, 976]
+
+
+Se eu fizer uma busca binária, procurando o número 380, quais números visitarei, em ordem?
+[196, 275, 370, 371, 401, 420, 421, 557, 643, 817, 862, 916, 948, 954, 976]
+[196, 275, 370, 371, 401, 420, 421]
+[401, 420, 421]
+[401]
+resp: [557,371,420,401]
+
+
+Se eu fizer uma busca binária, procurando o número 500, quais números visitarei, em ordem?
+196, 275, 370, 371, 401, 420, 421
+	401, 420, 421
+		421
+res 557,371,420,421
+
+
+Uma busca binária, com uma lista de 15 elementos, faz no máximo 4 consultas à lista. 
+E com uma lista de 31 elementos? Quantas consultas ocorreriam?
+meio -> agora a lista tem 15 elementos -> +4 consultas
+Total: 5 consultas
+
+E uma lista de 63 elementos?
+Total 6 consultas
+
+
+E uma lista de 511 elementos?
+[xxxxxxxxxxxxxxxxxxxxx           x           xxxxxxxxxxxxxxxxxxxxxxxxxxxx]
+	(511-1)/2		meio		(511-1)/2
+510/2 = 255						510/2
+
+Resposta: 9
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Considere a seguinte lista:
+[196, 275, 370, 371, 401, 420, 421, 557, 643, 817, 862, 916, 948, 954, 976]
+196, 275, 370, 371, 401, 420, 421
+                                401, 420, 421
+                                                421
+
+Se eu fizer uma busca binária, procurando o número 380, quais números visitarei, em ordem? 557, 371, 420, 401
+Se eu fizer uma busca binária, procurando o número 500, quais números visitarei, em ordem? 557, 371,420,421
+Uma busca binária, com uma lista de 15 elementos, faz no máximo 4 consultas à lista. E com uma lista de 31 elementos? Quantas consultas ocorreriam? meio -> agora a lista tem 15 elementos -> +4 consultas
+total: 5 consultas
+E uma lista de 63 elementos?
+E uma lista de 511 elementos?
+
+3, 4,5)
+[x x x x x x x x x x x x     x     x x x x x  x xx x x x x x x x]
+            15              meio          15
+
+olhei o do meio (1 consulta)
+se eu for pra direita, tem 15 elementos (4 consultas)
+se eu for pra esquerda, tem 15 elementos (4 consultas)
+
+31 elementos -> 5 consultas
+
+----------------------------
+
+63 elementos
+[x x x x x x x x x x x x     x     x x x x x  x xx x x x x x x x]
+            31              meio          31
+
+olhei o do meio (1 consulta)
+se eu for pra direita, tem 31 elementos (5 consultas)
+se eu for pra esquerda, tem 31 elementos (5 consultas)
+
+63 elementos -> 6 consultas
+
+511
+[x x x x x x x x x x x x     x     x x x x x  x xx x x x x x x x]
+     (511-1)/2              meio          (511-1)/2
+510/2 = 255
+gastei 1 consulta, e reduzi a lista, de 511 elementos
+para 255
+254/2 = 127
+gastei 1 consulta, e reduzi a lista, de 255 elementos
+para 127
+126/2 = 63
+gastei 1 consulta, e reduzi a lista, de 127 elementos
+para 63
+preciso de mais 6 consultas
+
+total com 511 elementos: 9 consultas
+

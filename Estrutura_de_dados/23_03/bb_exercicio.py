@@ -373,7 +373,18 @@ Implementamos a ideia descrita acima da seguinte forma:
     Se nao for, e o meio for menor, entao podemos pegar um novo comeco
 '''
 def busca_binaria(lista,procurado):
-    return False
+    menor_i = 0; maior_i = len(lista) -1
+    while(True):
+        i_meio = (menor_i + maior_i)//2
+        n_meio = lista[i_meio]
+        if menor_i > maior_i:
+            return False
+        if n_meio < procurado: # nao tem ninguem
+            menor_i, maior_i = i_meio + 1, maior_i
+        if n_meio > procurado:
+            menor_i,maior_i = menor_i,i_meio - 1
+        if n_meio == procurado:
+            return True
 
 '''
 EXERCICIO
