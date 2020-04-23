@@ -1,38 +1,50 @@
 from flask import Blueprint, jsonify, request
+from apps.alunos.services import IntegridadeException, IntegridadeReferencialException, sv_getLista, sv_add, sv_update, sv_delete
 from apps.alunos.models import Aluno
 
-alunos = [
-    Aluno(1, 'RA 1900519','Fernando Franco'),
-    Aluno(2, 'RA 1900520','Leo Ferreira'),
-    Aluno(3, 'RA 1900521','Nicholas Ferreira'),
-    Aluno(4, 'RA 1900522','Lucas Ano'),
-    Aluno(5, 'RA 1900523','Lara Argento')
-  ]
-
-bp = Blueprint('alunos', __name__)
+bp = Blueprint('bp_alunos', __name__)
 
 @bp.route('/', methods = ['GET'])
-def list_all():
-  return jsonify([aluno.to_dict() for aluno in alunos])
+def cadastrados():
+    return jsonify(sv_getLista())
+
+def unmarshalling():
+    return Aluno().from_dict(request.json)
 
 @bp.route('/', methods = ['POST'])
-def adicionarAluno():
-  ra = request.form['ra']
-  nome = request.form['nome']
-  ultid = alunos[len(alunos)-1].id + 1
+def adicionar():
+  try:
+    UnmObj = unmarshalling()
+    obj = sv_add(UnmObj.to_dict())
 
-  for al in alunos:
-    if ra == al.ra and nome == al.nome:
-      return 'Aluno já cadastrado!',400
-  
-  alunos.append(Aluno(ultid, ra,nome))
-  return list_all(),201
+    if obj.nome == '' or len(obj.nome) <= 3:
+      return f'Dados inconsistentes', 404
+    if obj == None:
+      return 'Aluno já cadastrado: '+ UnmObj.to_dict()['nome'], 404
 
-  @bp.route('/<string:ra>', methods = ['PUT'])
-  def alterarAluno(ra):
-    ra = request.form['ra']
-    nome = request.form['nome']
+    return "Aluno cadastrado: RA: {} Nome: {}".format(obj.id,obj.nome), 201
+  except IntegridadeException as e:
+      print(str(e))
+      return str(e), 400
+  except IntegridadeReferencialException as e:
+      print(str(e))
+      return str(e), 400
 
-    for al in alunos:
-      if ra == al.ra:
-        al.nome = nome
+@bp.route('/<int:id>', methods = ['PUT'])
+def alterar(id):
+    UnmObj = unmarshalling()
+    obj = sv_update(id, UnmObj.to_dict())
+
+    if obj == None:
+      return f'Aluno não encontrado',404
+    if obj == 404:
+      return f'Dados inconsistentes',404
+    return obj, 201
+
+@bp.route('/<int:id>', methods = ['DELETE'])
+def remover(id):
+    obj = sv_delete(id)
+    if obj == None:
+      return f'Aluno não encontrado',404
+    
+    return 'Aluno removido: {}'.format(obj.nome), 201

@@ -1,13 +1,19 @@
-class Aluno():
-  def __init__(self, id, ra, nome):
-    self.id = id
-    self.ra = ra
-    self.nome = nome
+class Aluno(object):
+    def __init__(self,id=None, nome=None):
+        self.id = id
+        self.nome = nome
 
-  def to_dict(self):
-    rep = {}
-    rep['id'] = self.id
-    rep['ra'] = self.ra
-    rep['nome'] = self.nome
+    def novoAluno(self,id, nome):
+        self.id = id
+        self.nome = nome
+        return self    
 
-    return rep
+    def to_dict(self):
+        rep = {}
+        rep['id'] = self.id
+        rep['nome'] = self.nome
+        return rep
+
+    def from_dict(self, data):
+          self.nome = data.get('nome', None)
+          return self
