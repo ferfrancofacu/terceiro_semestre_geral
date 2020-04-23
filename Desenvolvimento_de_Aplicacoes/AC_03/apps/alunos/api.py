@@ -15,10 +15,11 @@ def unmarshalling():
 def adicionar():
   try:
     UnmObj = unmarshalling()
+    if len(UnmObj.nome.replace(" ", "")) <= 3:
+      return f'Dados inconsistentes', 404
+
     obj = sv_add(UnmObj.to_dict())
 
-    if obj.nome == '' or len(obj.nome) <= 3:
-      return f'Dados inconsistentes', 404
     if obj == None:
       return 'Aluno já cadastrado: '+ UnmObj.to_dict()['nome'], 404
 

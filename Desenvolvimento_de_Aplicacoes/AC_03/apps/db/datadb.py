@@ -18,15 +18,9 @@ banco_de_dados = {
 }
 
 def db_selectAll(param):
-    lista = {}
-
     if param == None:
         return None
-
-    if param == 'alunos':
-        lista = banco_de_dados[param]
-
-    return lista
+    return banco_de_dados[param]
 
 def db_insert(param, obj):
     banco_de_dados[param].append(obj)
