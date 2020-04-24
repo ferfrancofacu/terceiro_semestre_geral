@@ -16,7 +16,7 @@ def sv_getLista():
 def sv_add(obj):
     if sv_consultar(None, obj["nome"]) != None:
         return None
-
+        
     listaProfs = sv_getLista()
     ultid = listaProfs[len(listaProfs)-1]['id'] + 1
     obj = Professor().novoProf(ultid, obj["nome"])
@@ -36,19 +36,20 @@ def sv_update(id, obj):
         return None
     if obj['nome'] == None or len(obj['nome']) <= 2:
         return 404   
-    
-    profRet['id'] = id
-    profRet['nome'] = obj['nome']   
+
     prof_alt = Professor()
-    prof_alt.id = id
-    prof_alt.nome = obj['nome']
-    sv_delete(id)
+    prof_alt.id = profRet['id']
+    prof_alt.nome = obj['nome'] 
+    sv_delete(profRet['id'])
     db_insert(table_name, prof_alt)
-    return profRet   
+    return prof_alt   
 
 def sv_delete(id):
+    for disc in db_selectAll('disciplinas'):
+        if disc.id_coordenador == id:
+            return 'bloqueado'
+
     obj = db_remover(table_name,id)
     if obj == None:
         return None
     return obj
-

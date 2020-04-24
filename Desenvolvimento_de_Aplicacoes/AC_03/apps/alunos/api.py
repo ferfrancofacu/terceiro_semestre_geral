@@ -40,7 +40,7 @@ def alterar(id):
       return f'Aluno não encontrado',404
     if obj == 404:
       return f'Dados inconsistentes',404
-    return obj, 201
+    return "Aluno alterado: RA: {} Nome: {}".format(obj['id'],obj['nome']), 201
 
 @bp.route('/<int:id>', methods = ['DELETE'])
 def remover(id):

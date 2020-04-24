@@ -36,15 +36,13 @@ def sv_update(id, objAluno):
         return None
     if objAluno['nome'] == None or len(objAluno['nome']) <= 2:
         return 404   
-    
-    alunoRet['id'] = id
-    alunoRet['nome'] = objAluno['nome']   
+ 
     aluno_alt = Aluno()
-    aluno_alt.id = id
+    aluno_alt.id = alunoRet['id']
     aluno_alt.nome = objAluno['nome']
-    sv_delete(id)
+    sv_delete(aluno_alt.id)
     db_insert(table_name, aluno_alt)
-    return alunoRet   
+    return aluno_alt   
 
 def sv_delete(id):
     obj = db_remover(table_name,id)

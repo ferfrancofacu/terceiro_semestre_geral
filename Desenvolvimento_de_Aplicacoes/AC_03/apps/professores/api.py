@@ -40,12 +40,13 @@ def alterar(id):
       return f'Professor não encontrado',404
     if obj == 404:
       return f'Dados inconsistentes',404
-    return obj, 201
+    return "Professor alterado: ID: {} Nome: {}".format(obj['id'],obj['nome']), 201
 
 @bp.route('/<int:id>', methods = ['DELETE'])
 def remover(id):
     obj = sv_delete(id)
     if obj == None:
       return f'Professor não encontrado',404
-    
+    if obj == 'bloqueado':
+      return f'Professor não poder ser removido, está escrito em uma disciplina', 404
     return 'Professor removido: {}'.format(obj.nome), 201

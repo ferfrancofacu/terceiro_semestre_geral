@@ -1,18 +1,63 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+from apps.disciplinas.services import IntegridadeException, IntegridadeReferencialException, sv_getLista, sv_add, sv_update, sv_delete
 from apps.disciplinas.models import Disciplina
 
-#id, nome, status, plano_ensino, carga_horaria, id_coordenador
+bp = Blueprint('bp_disciplinas', __name__)
 
-disciplinas = [
-  Disciplina(1,'Banco de Dados',1,'Noite',120,1),
-  Disciplina(2,'Infra Estrutura',1,'Noite',80,2),
-  Disciplina(3,'Analitycs',0,'Noite',120,3),
-  Disciplina(4,'Desenvolvimento de Sistemas',1,'Noite',200,4)
-]
 
-bp = Blueprint('disciplinas', __name__)
+@bp.route('/', methods = ['GET'])
+def cadastrados():
+    return jsonify(sv_getLista())
 
-@bp.route('/')
-def list_all():
-  return jsonify([disciplina.to_dict() for disciplina in disciplinas])
- 
+
+def unmarshalling():
+    return Disciplina().from_dict(request.json)
+
+
+@bp.route('/', methods = ['POST'])
+def adicionar():
+  try:
+    UnmObj = unmarshalling()
+    lenNome = len(UnmObj.nome.replace(" ", ""))
+    lenCoor = len(str(UnmObj.id_coordenador))
+    if lenNome <= 2 or lenCoor < 5:
+      return f'Dados inconsistentes', 404
+
+    obj = sv_add(UnmObj.to_dict())
+
+    if obj == None:
+      return 'Disciplina já cadastrado: '+ UnmObj.to_dict()['nome'], 404
+
+    if obj == 'prof_none':
+      return 'Não existe id do coordenador: '+ UnmObj.to_dict()['nome'], 404
+    
+    return "Disciplina cadastrado: Nome: {}".format(obj.nome), 201
+  except IntegridadeException as e:
+      print(str(e))
+      return str(e), 400
+  except IntegridadeReferencialException as e:
+      print(str(e))
+      return str(e), 400
+
+
+@bp.route('/<int:id>', methods = ['PUT'])
+def alterar(id):
+    UnmObj = unmarshalling()
+    obj = sv_update(id, UnmObj.to_dict())
+
+    if obj == None:
+      return f'Disciplina não encontrado',404
+    if obj == 404:
+      return f'Dados inconsistentes',404
+    if obj == 403:
+      return f'Id do professor não cadastrado',404
+    return "Disciplina alterado: ID: {} Nome: {}".format(obj.id, obj.nome), 201
+
+
+@bp.route('/<int:id>', methods = ['DELETE'])
+def remover(id):
+    obj = sv_delete(id)
+    if obj == None:
+      return f'Disciplina não encontrado',404
+    
+    return 'Disciplina removido: {}'.format(obj.nome), 201
