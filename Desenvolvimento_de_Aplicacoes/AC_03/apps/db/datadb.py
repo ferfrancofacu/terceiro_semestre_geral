@@ -11,14 +11,14 @@ banco_de_dados = {
         Aluno(1900523,'Lara Argento')
         ],
     'professores' : [
-        Professor(50000,'Valdemor Moraes'),
-        Professor(50001,'Antonio Fagundis'),
-        Professor(50002,'Mussu Alias'),
-        Professor(50003,'Zeze Di Camargo'),
-        Professor(50004,'Avril Lavigne'),
-        Professor(50005,'Avril Lavigne'),
-        Professor(50006,'Wando Lima'),
-        Professor(50007,'Lucas Duarte')
+        Professor(50003,'Professor Raimundo'),
+        Professor(50001,'Sherman Klump'),
+        Professor(50002,'Pasquale Neto'),
+        Professor(50004,'Albert Einstein'),
+        Professor(50007,'Isaac Newton'),
+        Professor(50005,'Leonardo di Ser Piero da Vinci'),
+        Professor(50006,'Federico Faggin'),
+        Professor(50000,'Robert H. Dennard')
         ],
     'disciplinas' : [
         Disciplina(1001,'Aplicações Web'        ,1,'plano de ensino do professor',120,50000),

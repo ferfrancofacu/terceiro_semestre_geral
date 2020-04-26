@@ -11,13 +11,15 @@ class IntegridadeReferencialException(Exception):
     pass
 
 def sv_getLista():
-    return [row.to_dict() for row in db_selectAll(table_name)]
+    listObj = [row.to_dict() for row in db_selectAll(table_name)]
+    return sorted(listObj, key = lambda i: i['id'])
 
 def sv_add(obj):
     if sv_consultar(None, obj["nome"]) != None:
         return None
         
     listaProfs = sv_getLista()
+    
     ultid = listaProfs[len(listaProfs)-1]['id'] + 1
     obj = Professor().novoProf(ultid, obj["nome"])
     
@@ -36,11 +38,13 @@ def sv_update(id, obj):
         return None
     if obj['nome'] == None or len(obj['nome']) <= 2:
         return 404   
+    if sv_consultar(None, obj['nome']) != None:
+        return 405
 
     prof_alt = Professor()
     prof_alt.id = profRet['id']
     prof_alt.nome = obj['nome'] 
-    sv_delete(profRet['id'])
+    db_remover(table_name, profRet['id'])
     db_insert(table_name, prof_alt)
     return prof_alt   
 

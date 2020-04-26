@@ -9,12 +9,17 @@ def cadastrados():
     return jsonify(sv_getLista())
 
 def unmarshalling():
+    if request.json == None:
+      return None
     return Aluno().from_dict(request.json)
 
 @bp.route('/', methods = ['POST'])
 def adicionar():
   try:
     UnmObj = unmarshalling()
+    if UnmObj == None:
+      return f'Não há dados no corpo', 404
+
     if len(UnmObj.nome.replace(" ", "")) <= 3:
       return f'Dados inconsistentes', 404
 
@@ -34,13 +39,17 @@ def adicionar():
 @bp.route('/<int:id>', methods = ['PUT'])
 def alterar(id):
     UnmObj = unmarshalling()
+    if UnmObj == None:
+      return f'Não há dados no corpo', 404
     obj = sv_update(id, UnmObj.to_dict())
 
     if obj == None:
       return f'Aluno não encontrado',404
     if obj == 404:
       return f'Dados inconsistentes',404
-    return "Aluno alterado: RA: {} Nome: {}".format(obj['id'],obj['nome']), 201
+    if obj == 405:
+      return f'Nome já alterado ou existente em outro RA',404  
+    return "Aluno alterado: RA: {} Nome: {}".format(obj.id, obj.nome), 201
 
 @bp.route('/<int:id>', methods = ['DELETE'])
 def remover(id):

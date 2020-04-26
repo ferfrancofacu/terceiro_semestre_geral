@@ -11,7 +11,8 @@ class IntegridadeReferencialException(Exception):
     pass
 
 def sv_getLista():
-    return [row.to_dict() for row in db_selectAll(table_name)]
+    listObj = [row.to_dict() for row in db_selectAll(table_name)]
+    return sorted(listObj, key = lambda i: i['id'])
 
 
 def sv_add(obj):
@@ -55,7 +56,7 @@ def sv_update(id, obj):
             disc_alt.carga_horaria = obj['carga_horaria']
             disc_alt.id_coordenador = obj['id_coordenador']
 
-            sv_delete(id)
+            db_remover(table_name, discRet['id'])
             db_insert(table_name, disc_alt)
             return disc_alt  
     return 403

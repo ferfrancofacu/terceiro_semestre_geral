@@ -1,0 +1,764 @@
+{
+	"info": {
+		"_postman_id": "17011a5e-32e8-4fa8-bf4b-a6b97d8649a0",
+		"name": "Faculdade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Escola",
+			"item": [
+				{
+					"name": "Debug",
+					"item": [
+						{
+							"name": "http://localhost:5000/alunos Debug",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/alunos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"alunos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/alunos Debug",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nome\":\"Michelly Ferreira\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/alunos/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"alunos",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:8080/alunos/ Debug",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Lucas Ano\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/alunos/1900522",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"alunos",
+										"1900522"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/alunos/1900522 Debug",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/alunos/1900523",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"alunos",
+										"1900523"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/professores Debug",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/professores",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"professores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/professoresDebug",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nome\":\"Paula Fernandes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/professores/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"professores",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/professores/ Debug",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\":\"Pasquale Cipro Neto aaaaaaaaa\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/professores/50002",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"professores",
+										"50002"
+									]
+								},
+								"description": "PUT"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/professores/ Debug",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/professores/50008",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"professores",
+										"50008"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/disciplinas Debug",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/disciplinas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"disciplinas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/diciplinas Debug",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"carga_horaria\": 120,\r\n\t\"id_coordenador\": 50002,\r\n\t\"nome\": \"Relações internacionais\",\r\n\t\"plano_ensino\": \"plano de ensino do professor\",\r\n\t\"status\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/disciplinas",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"disciplinas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/disciplinas/ Debug",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "ra",
+										"value": "19999",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "nome",
+										"value": "Fernando",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"carga_horaria\": 80,\r\n        \"id\": 11111,\r\n        \"id_coordenador\": 50002,\r\n        \"nome\": \"Engenharia de Software 24\",\r\n        \"plano_ensino\": \"plano de ensino do professo 2r\",\r\n        \"status\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/disciplinas/1003",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"disciplinas",
+										"1003"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/disciplinas/ Debug",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/disciplinas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"disciplinas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "http://localhost:8080/alunos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/alunos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ra",
+								"value": "19999",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"value": "Fernando",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Michelly Ferreira\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/alunos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "ra",
+								"value": "19999",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"value": "Fernando",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Michelly Paula Ferreira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/1900523",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1900523"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/alunos/1900522",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alunos/1900521",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1900521"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/professores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/professores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/professores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ra",
+								"value": "19999",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"value": "Fernando",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Jack St. Claire Kilby\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/professores/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/professores/",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "ra",
+								"type": "text",
+								"value": "19999",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"type": "text",
+								"value": "Fernando",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\":\"Pasquale Cipro Neto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/professores/50002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"50002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/professores/",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/professores/50002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"50002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/disciplinas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/disciplinas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplinas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/diciplinas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ra",
+								"value": "19999",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"value": "Fernando",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"carga_horaria\": 120,\n\t\"id_coordenador\": 50005,\n\t\"nome\": \"Relações internacionais\",\n\t\"plano_ensino\": \"plano de ensino do professor\",\n\t\"status\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/disciplinas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplinas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/disciplinas/",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "ra",
+								"value": "19999",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "nome",
+								"value": "Fernando",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"carga_horaria\": 80,\r\n        \"id\": 11111,\r\n        \"id_coordenador\": 50003,\r\n        \"nome\": \"Engenharia de Software v.2\",\r\n        \"plano_ensino\": \"plano de ensino do professo 2r\",\r\n        \"status\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/disciplinas/1003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplinas",
+								"1003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/disciplinas/",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/disciplinas/1002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplinas",
+								"1002"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

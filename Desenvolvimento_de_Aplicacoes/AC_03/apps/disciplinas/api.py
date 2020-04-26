@@ -11,6 +11,8 @@ def cadastrados():
 
 
 def unmarshalling():
+    if request.json == None:
+      return None
     return Disciplina().from_dict(request.json)
 
 
@@ -18,6 +20,9 @@ def unmarshalling():
 def adicionar():
   try:
     UnmObj = unmarshalling()
+    if UnmObj == None:
+      return f'Não há dados no corpo', 404
+
     lenNome = len(UnmObj.nome.replace(" ", ""))
     lenCoor = len(str(UnmObj.id_coordenador))
     if lenNome <= 2 or lenCoor < 5:
@@ -31,7 +36,7 @@ def adicionar():
     if obj == 'prof_none':
       return 'Não existe id do coordenador: '+ UnmObj.to_dict()['nome'], 404
     
-    return "Disciplina cadastrado: Nome: {}".format(obj.nome), 201
+    return "Disciplina cadastrado: Disciplina {}".format(obj.nome), 201
   except IntegridadeException as e:
       print(str(e))
       return str(e), 400
