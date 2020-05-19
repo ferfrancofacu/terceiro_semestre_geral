@@ -1,10 +1,13 @@
 '''
 Implemente a função recursiva soma_n_primeiros.
+
 Ela recebe um número e retorna a soma de todos os numeros inteiros até ele
+
 por exemplo, soma_n_primeiros(3) retorna 6 (que é 1+2+3)
 por exemplo, soma_n_primeiros(5) retorna 15 (que é 1+2+3+4+5)
 por exemplo, soma_n_primeiros(100) retorna 5050 (que é 1+2+3+4+5...+99+100)
 por exemplo, soma_n_primeiros(1) retorna 1
+
 O primeiro teste pega o "caso simples": n=1
 Depois de passar ele, implemente a recursao
 usando que soma_n_primeiros(100) = soma_n_primeiros(99)+100
@@ -18,8 +21,10 @@ def soma_n_primeiros(n):
 Implemente uma função recursiva soma_lista
 que recebe uma lista e retorna a soma
 de todos os seus elementos 
+
 por exemplo, soma_lista([10,2]) retorna 12
 por exemplo, soma_lista([10,2,3]) retorna 15
+
 O primeiro teste pega o "caso simples": listas com 0 ou 1 elemento
 Depois de passar ele, implemente a recursao
 usando que soma_lista([5, resto]) = soma_lista(resto)+5
@@ -34,10 +39,12 @@ def soma_lista(lista):
 Implemente uma função recursiva conta_recursiva, que 
 recebe uma lista e um numero, e diz quantas vezes o número
 aparece na lista.
+
 Por exemplo conta_recursiva([0,1,2,1,4],1) retorna 2
 Por exemplo conta_recursiva([0,1,2,1,4],4) retorna 1
 Por exemplo conta_recursiva([0,1,2,1,4],5) retorna 0
 Por exemplo conta_recursiva([],5) retorna 0
+
 O primeiro teste pega o "caso simples": listas com 0 ou 1 elemento
 Depois de passar ele, implemente a recursao
 usando que conta_recursiva([5, resto],5) = conta_recursiva(resto)+1
@@ -53,10 +60,12 @@ def conta_recursiva(lista, numero):
 Implemente uma função recursiva filtro_recursivo
 ela recebe uma lista e um numero e retorna a lista,
 tirando todas as vezes que o número aparece
+
 Por exemplo filtro_recursivo([0,1,2,1,4],1) retorna [0,2,4]
 Por exemplo filtro_recursivo([0,1,2,1,4],4) retorna [0,1,2,1]
 Por exemplo filtro_recursivo([0,1,2,1,4],5) retorna [0,1,2,1,4]
 Por exemplo filtro_recursivo([],5) retorna []
+
 O primeiro teste pega o "caso simples": listas com 0 ou 1 elemento
 Depois de passar ele, implemente a recursao usando as duas ideias abaixo
 filtro_recursivo([5, resto],5) = filtro_recursivo(resto);
@@ -73,19 +82,23 @@ def filtro_recursivo(lista, numero):
 Defina uma função recursiva palindromo_recursivo, 
 que recebe uma string e retorna
 True se ela é um palindromo, False caso contrario.
+
 Um palindromo é uma string "espelhada"
+
 Por exemplo palindromo_recursivo('abbabba') retorna True
 Por exemplo palindromo_recursivo('aaa') retorna True
 Por exemplo palindromo_recursivo('aaaa') retorna True
 Por exemplo palindromo_recursivo('aac') retorna False
 Por exemplo palindromo_recursivo('a') retorna True
 Por exemplo palindromo_recursivo('') retorna True
+
 O primeiro teste pega o "caso simples": listas com 0 ou 1 elemento
 Depois de passar ele, implemente a recursao
 usando que palindromo('a'+umastring+'a') = palindromo(umastring)
 (ou seja, 'a'+umastring+'a' é palindromo quando umastring é palindromo)
 note que para palindromo('a'+umastring+'b'), nao precisamos de
 recursao: a resposta é False
+
 dicas:
     string[0] é o primeiro elemento
     string[-1] é o ultimo
@@ -103,10 +116,12 @@ def palindromo_recursivo(string):
 Implemente uma função recursiva troca_recursiva
 ela recebe uma lista e dois numeros (tirar e colocar) 
 e retorna a lista, trocando o numero tirar pelo colocar
+
 Por exemplo troca_recursiva([0,1,2,1,4],1,5) retorna [0,5,2,5,4]
 Por exemplo troca_recursiva([0,1,2,1,4],4,7) retorna [0,1,2,1,7]
 Por exemplo troca_recursiva([0,1,2,1,4],5,6) retorna [0,1,2,1,4]
 Por exemplo troca_recursiva([],5) retorna []
+
 O primeiro teste pega o "caso simples": listas com 0 ou 1 elemento
 Depois de passar ele, implemente a recursao usando as duas ideias abaixo
 troca_recursiva([5, resto],5,3) = [3]+troca_recursiva(resto);
@@ -121,18 +136,23 @@ def troca_recursiva(lista, tirar, colocar):
 
 '''
 Agora, a idéia é implementar uma funcao soma para listas de listas
+
 Por exemplo, considere a lista [[[1,2,3],[4,5],11,4],9,8,4]
+
 O seu primeiro elemento é uma lista
 [[1,2,3],[4,5],11,4]
+
 Essa lista tem o primeiro elemento sendo uma lista: [1,2,3]
 e o segundo também: [4,5]
+
 Ou seja, uma lista de listas pode conter listas que também contem listas: 
 [[[[[1]]],2]] é uma lista de listas válida
+
 Para ajudar, escrevi uma funcao eh_lista que retorna True se um objeto é lista e 
 False se não é
 '''
 def eh_lista(a):
-    return isinstance(a,list)
+    return isinstance(a, list)
 
 
 ''' 
@@ -141,39 +161,43 @@ todos os números
 Por exemplo, soma_ll([[[1,2,3],[4,5],11,4],9,8,4]) é 46
 '''
 def soma_ll(lista):
-    q = 0
-    for l in lista:
-        if eh_lista(l):
-            q += soma_ll(l)
+    count = 0
+    for i in lista:
+        if eh_lista(i):
+            count += soma_ll(i)
         else:
-            q += l
-    return q
+            count += i
+    return count
       
 
 '''
 Implemente uma função anagramas 
 que recebe uma palavra e devolve uma lista com todos 
 os seus "embaralhamentos" (anagramas)
+
 Por exemplo, anagramas('ab') deve retornar ['ab','ba']
 '''
 
 def anagramas(palavra):
-    if len(palavra) <=1:
-        return palavra
-    else:
-        tmp = []
-    for aux in anagramas(palavra[1:]):
-        for i in range(len(palavra)):
-            tmp.append(aux[:i] + palavra[0:1] + aux[i:])
-    return tmp
+  anagrama = []
+  if len(palavra) <= 1:
+      return palavra
+  else:
+    for resto in anagramas(palavra[1:]):
+      for i in range(len(palavra)):
+        anagrama.append(resto[:i] + palavra[0] + resto[i:])
+    return anagrama
 
 '''
 A partir daqui, não tem nada pra você implementar
 '''
 
 import random
+
+
 import unittest
 import sys
+
 
 class TestStringMethods(unittest.TestCase):
 
