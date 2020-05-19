@@ -264,7 +264,7 @@ def conta(arvore):
 Agora, vamos fazer uma funcao para calcular a soma de todos os numeros presentes
 em uma arvore. Acho que recursao pode ser util aqui
 '''
-
+# Fiz dessa forma com as variaveis para eu entender melhor as etapas
 def soma(arvore):
     if raiz(arvore) == 'nao tem raiz':
         return 0
